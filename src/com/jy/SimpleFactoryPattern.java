@@ -42,8 +42,11 @@ public class SimpleFactoryPattern {
 
 		// 根据不同的运算符来创建不同的实例
 		operation = OperationFactory.creatOperation(operationStr);
-		if (operation == null)
+		if (operation == null) {
+			scanner.close();
 			return;
+		}
+
 		operation.mNumA = numA;
 		operation.mNumB = numB;
 		double result = operation.getResult();
